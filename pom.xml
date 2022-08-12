@@ -19,7 +19,7 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>5.7.0</version>
+            <version>5.9.0</version>
             <scope>test</scope>
         </dependency>
 
@@ -35,10 +35,12 @@
                     <failIfNoTests>true</failIfNoTests>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.5</version>
+
 
                 <executions>
                     <execution>
@@ -66,7 +68,7 @@
                                         <limit>
                                             <counter>LINE</counter>
                                             <value>COVEREDRATIO</value>
-                                            <minimum>100%</minimum>
+                                            <minimum>85%</minimum>
                                         </limit>
                                     </limits>
                                 </rule>

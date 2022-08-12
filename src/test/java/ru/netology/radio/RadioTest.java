@@ -50,4 +50,13 @@ public class RadioTest {
         int actual = cond.currentNumberRadioStation;//фактический результат
         Assertions.assertEquals(expected, actual);//проверяем предположение
     }
+
+    @Test
+    public void SetVolumeNumber() {//клиент сам выставляет уровень громкости
+        Radio cond = new Radio(); //состояние радио = новому состоянию
+        cond.setCurrentNumberVolume(5);//тестируем состояние при громкости №5
+        int expected = 5;//ожидаемый результат
+        int actual = cond.currentNumberVolume;//фактический результат
+        Assertions.assertEquals(expected, actual);//проверяем предположение
+    }
 }

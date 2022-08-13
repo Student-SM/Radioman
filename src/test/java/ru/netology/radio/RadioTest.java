@@ -50,11 +50,32 @@ public class RadioTest {
         int actual = cond.currentNumberRadioStation;//фактический результат
         Assertions.assertEquals(expected, actual);//проверяем предположение
     }
+
     @Test
     public void SetNumberVolume() {//клиент сам выставляет уровень громкости
         Radio cond = new Radio();//состояние радио = новому состоянию
         cond.setCurrentNumberVolume(7);//тестируем состояние уровня звука №7
         int expected = 7;//ожидаемый результат
+        int actual = cond.currentNumberVolume;//фактический результат
+        Assertions.assertEquals(expected, actual);//проверяем предположение
+    }
+
+    @Test
+    public void SetNumberVolumePlus() {//увеличение громкости на один
+        Radio cond = new Radio();//состояние радио = новому состоянию
+        cond.setCurrentNumberVolume(2);//тестируем состояние уровня звука №2
+        cond.increaseVolume();//используем метод increaseVolume (Radio.java)
+        int expected = 3;//ожидаемый результат
+        int actual = cond.currentNumberVolume;//фактический результат
+        Assertions.assertEquals(expected, actual);//проверяем предположение
+    }
+
+    @Test
+    public void SetNumberVolumeMinus() {//уменьшение громкости на один
+        Radio cond = new Radio();//состояние радио = новому состоянию
+        cond.setCurrentNumberVolume(10);//тестируем состояние уровня звука №10
+        cond.decreaseVolume();//используем метод decreaseVolume (Radio.java)
+        int expected = 9;//ожидаемый результат
         int actual = cond.currentNumberVolume;//фактический результат
         Assertions.assertEquals(expected, actual);//проверяем предположение
     }

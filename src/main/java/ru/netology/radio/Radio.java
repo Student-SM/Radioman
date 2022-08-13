@@ -33,9 +33,9 @@ public class Radio {
 
     public int currentNumberVolume;// поле номера громкости
 
-    public int getCurrentNumberVolume() {//метод,отдающий данные.
-        return currentNumberVolume;
-    }
+    // public int getCurrentNumberVolume() {//метод,отдающий данные.
+      //  return currentNumberVolume;
+   // }
 
     public void setCurrentNumberVolume(int newCurrentNumberVolume) {
         if (newCurrentNumberVolume > 10 ) {

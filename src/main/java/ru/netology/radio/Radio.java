@@ -30,17 +30,21 @@ public class Radio {
             setCurrentNumberRadioStation(currentNumberRadioStation - 1);
         }
     }
-    public int currentNumberVolume;// поле номера громкости
-    public int maxNumberVolume = 10;// поле максимального номера громкости
-    public int minNumberVolume = 0;//поле минимального номера громкости
 
-    public void setCurrentNumberVolume(int newCurrentNumberVolume ) {
-        if (newCurrentNumberVolume < minNumberVolume) {
+    public int currentNumberVolume;// поле номера громкости
+
+    public int getCurrentNumberVolume() {//метод,отдающий данные.
+        return currentNumberVolume;
+    }
+
+    public void setCurrentNumberVolume(int newCurrentNumberVolume) {
+        if (newCurrentNumberVolume > 10 ) {
             return;
         }
-        if (newCurrentNumberVolume > maxNumberVolume) {
+        if (newCurrentNumberVolume < 0) {
             return;
         }
         currentNumberVolume = newCurrentNumberVolume;
+
     }
 }

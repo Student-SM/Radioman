@@ -22,6 +22,7 @@ public class RadioTest {
         int actual = cond.currentNumberRadioStation;//фактический результат
         Assertions.assertEquals(expected, actual);//проверяем предположение
     }
+
     @Test
     public void NumberStationPlusOver() {//номер станции 9 увеличиваем на один(граничные значения)
         Radio cond = new Radio();//состояние радио = новому состоянию
@@ -41,6 +42,7 @@ public class RadioTest {
         int actual = cond.currentNumberRadioStation;//фактический результат
         Assertions.assertEquals(expected, actual);//проверяем предположение
     }
+
     @Test
     public void NumberStationMinusDown() {//номер станции уменьшаем на один(крайнее значение)
         Radio cond = new Radio();//состояние радио = новому состоянию
@@ -50,7 +52,6 @@ public class RadioTest {
         int actual = cond.currentNumberRadioStation;//фактический результат
         Assertions.assertEquals(expected, actual);//проверяем предположение
     }
-
 
 
     @Test
@@ -79,6 +80,7 @@ public class RadioTest {
         int actual = cond.currentNumberVolume;//фактический результат
         Assertions.assertEquals(expected, actual);//проверяем предположение
     }
+
     @Test
     public void SetVolumeOver10() {//громкость больше 10
         Radio cond = new Radio();//состояние радио = новому состоянию
@@ -87,8 +89,9 @@ public class RadioTest {
         int actual = cond.currentNumberVolume;//фактический результат
         Assertions.assertEquals(expected, actual);//проверяем предположение
     }
+
     @Test
-    public void VolumeDown0 () { //громкость меньше 0
+    public void VolumeDown0() { //громкость меньше 0
         Radio cond = new Radio();//состояние радио = новому состоянию
         cond.setCurrentNumberVolume(-3);//тестируем состояние уровня звука №-3
         int expected = 0;//ожидаемый результат

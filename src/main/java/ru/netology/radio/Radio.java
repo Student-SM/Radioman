@@ -34,11 +34,11 @@ public class Radio {
     public int currentNumberVolume;// поле номера громкости
 
     // public int getCurrentNumberVolume() {//метод,отдающий данные.
-      //  return currentNumberVolume;
-   // }
+    //  return currentNumberVolume;
+    // }
 
     public void setCurrentNumberVolume(int newCurrentNumberVolume) {
-        if (newCurrentNumberVolume > 10 ) {
+        if (newCurrentNumberVolume > 10) {
             return;
         }
         if (newCurrentNumberVolume < 0) {
@@ -46,11 +46,14 @@ public class Radio {
         }
         currentNumberVolume = newCurrentNumberVolume;
 
-    }public void increaseVolume() {
+    }
+
+    public void increaseVolume() {
         if (currentNumberVolume < 10) {
             currentNumberVolume = currentNumberVolume + 1;
         }
     }
+
     public void decreaseVolume() {
         if (currentNumberVolume > 0) {
             currentNumberVolume = currentNumberVolume - 1;

@@ -1,62 +1,66 @@
 package ru.netology.radio;
 
 public class Radio {
-    public int currentNumberRadioStation;// поле номер станции
-    public int maxNumberRadioStation = 9;// поле максимального номера станции
-    public int minNumberRadioStation = 0;//поле минимального номера станции
 
-    public void setCurrentNumberRadioStation(int newCurrentNumberRadioStation) {
-        if (newCurrentNumberRadioStation < minNumberRadioStation) {
-            return;
-        }
-        if (newCurrentNumberRadioStation > maxNumberRadioStation) {
-            return;
-        }
-        currentNumberRadioStation = newCurrentNumberRadioStation;
+
+    protected int CurrentNumberVolume;
+    protected int CurrentStation;
+
+
+    public int getCurrentNumberVolume() {
+        return CurrentNumberVolume;
     }
 
-    public void nextNumberStation() {
-        if (currentNumberRadioStation >= maxNumberRadioStation) {
-            setCurrentNumberRadioStation(minNumberRadioStation);
-        } else {
-            setCurrentNumberRadioStation(currentNumberRadioStation + 1);
-        }
+    public int getCurrentStation() {
+        return CurrentStation;
     }
 
-    public void prevNumberStation() {
-        if (currentNumberRadioStation <= minNumberRadioStation) {
-            setCurrentNumberRadioStation(maxNumberRadioStation);
-        } else {
-            setCurrentNumberRadioStation(currentNumberRadioStation - 1);
+    public void setCurrentNumberVolume(int CurrentNumberVolume) {
+        if (CurrentNumberVolume > 10) {
+            return;
         }
+        if (CurrentNumberVolume < 0) {
+            return;
+        }
+        this.CurrentNumberVolume = CurrentNumberVolume;
+
     }
 
-    public int currentNumberVolume;// поле номера громкости
-
-    // public int getCurrentNumberVolume() {//метод,отдающий данные.
-    //  return currentNumberVolume;
-    // }
-
-    public void setCurrentNumberVolume(int newCurrentNumberVolume) {
-        if (newCurrentNumberVolume > 10) {
+    public void setCurrentStation(int CurrentStation) {
+        if (CurrentStation > 9) {
             return;
         }
-        if (newCurrentNumberVolume < 0) {
+        if (CurrentStation < 0) {
             return;
         }
-        currentNumberVolume = newCurrentNumberVolume;
+        this.CurrentStation = CurrentStation;
+    }
+
+    public void nextStation() {
+        if (CurrentStation < 9) {
+            CurrentStation = CurrentStation + 1;
+        }
+        else CurrentStation = 0;
+    }
+    public void prevStation() {
+        if (CurrentStation < 1) {
+            CurrentStation = 9;
+        }
+        else {CurrentStation = CurrentStation - 1;
+
+        }
 
     }
 
     public void increaseVolume() {
-        if (currentNumberVolume < 10) {
-            currentNumberVolume = currentNumberVolume + 1;
+        if (CurrentNumberVolume < 10) {
+            CurrentNumberVolume = CurrentNumberVolume + 1;
         }
     }
 
     public void decreaseVolume() {
-        if (currentNumberVolume > 0) {
-            currentNumberVolume = currentNumberVolume - 1;
+        if (CurrentNumberVolume > 0) {
+            CurrentNumberVolume = CurrentNumberVolume - 1;
         }
     }
 }

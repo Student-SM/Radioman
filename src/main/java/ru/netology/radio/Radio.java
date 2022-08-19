@@ -39,14 +39,14 @@ public class Radio {
     public void nextStation() {
         if (CurrentStation < 9) {
             CurrentStation = CurrentStation + 1;
-        }
-        else CurrentStation = 0;
+        } else CurrentStation = 0;
     }
+
     public void prevStation() {
         if (CurrentStation < 1) {
             CurrentStation = 9;
-        }
-        else {CurrentStation = CurrentStation - 1;
+        } else {
+            CurrentStation = CurrentStation - 1;
 
         }
 
@@ -55,12 +55,16 @@ public class Radio {
     public void increaseVolume() {
         if (CurrentNumberVolume < 10) {
             CurrentNumberVolume = CurrentNumberVolume + 1;
+        } else {
+            CurrentNumberVolume = 10;
         }
     }
 
     public void decreaseVolume() {
         if (CurrentNumberVolume > 0) {
             CurrentNumberVolume = CurrentNumberVolume - 1;
+        } else {
+            CurrentNumberVolume = 0;
         }
     }
 }

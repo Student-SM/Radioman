@@ -20,16 +20,17 @@ public class RadioTest {
         Radio radio = new Radio(50); //создаем новый объект
         radio.setCurrentStation(0);//состояние объекта - 0 станция
         radio.nextStation();//метод
-        int expected  = 1;//ожидаемый результат
+        int expected = 1;//ожидаемый результат
         int actual = radio.getCurrentStation();//фактический результат
         Assertions.assertEquals(expected, actual);//проверяем утверждения
     }
+
     @Test
     public void testNextStationAfterMax() {//тест на станцию после максимальной(с 49-ой на 0-ю)
         Radio radio = new Radio(50); //создаем новый объект
         radio.setCurrentStation(49);//состояние объекта - 49 станция
         radio.nextStation();//метод
-        int expected  = 0;//ожидаемый результат
+        int expected = 0;//ожидаемый результат
         int actual = radio.getCurrentStation();//фактический результат
         Assertions.assertEquals(expected, actual);//проверяем утверждения
     }
@@ -53,6 +54,7 @@ public class RadioTest {
         int actual = radio.getCurrentStation();//фактический результат
         Assertions.assertEquals(expected, actual);//проверяем утверждения
     }
+
     @Test
     public void testPrevStation0() {//тест с нуля на максимальную станция(0 на 49)
         Radio radio = new Radio(50); //создаем новый объект
@@ -74,11 +76,11 @@ public class RadioTest {
     }
 
     @Test
-    public void testIncreaseVolume10() {//тест на увеличение звука с 10 на 10
+    public void testIncreaseVolume100() {//тест на увеличение больше 100 = 100
         Radio radio = new Radio();//создаем новый объект
-        radio.setCurrentNumberVolume(10);//состояние объекта - 5-я громкость
+        radio.setCurrentNumberVolume(100);//состояние объекта 100
         radio.increaseVolume();//метод
-        int expected = 10;//ожидаемый результат
+        int expected = 100;//ожидаемый результат
         int actual = radio.getCurrentNumberVolume();//фактический результат
         Assertions.assertEquals(expected, actual);//проверяем утверждения
     }
@@ -107,11 +109,12 @@ public class RadioTest {
     public void testSetCurrentStation50() {//тест выбранную станцию больше максимальной 50
         Radio radio = new Radio(50);//создаем новый объект
         radio.setCurrentStation(50);
-        int expected =0;
+        int expected = 0;
         int actual = radio.getCurrentStation();
         Assertions.assertEquals(expected, actual);//проверяем утверждения
 
     }
+
     @Test
     public void testSetCurrentStationMinusMin() {//тест выбранную станцию меньше минимальной
         Radio radio = new Radio(50);//создаем новый объект
@@ -131,20 +134,31 @@ public class RadioTest {
     }
 
     @Test
-    public void testSetCurrentNumberVolume11() {//тест граничные значения звука(11)
+    public void testSetCurrentNumberVolume25() {//тест сетера на громкость 25
         Radio radio = new Radio();//создаем новый объект
-        radio.setCurrentNumberVolume(11);
-        int expected = 0;
+        radio.setCurrentNumberVolume(25);
+        int expected = 25;
         int actual = radio.getCurrentNumberVolume();
         Assertions.assertEquals(expected, actual);//проверяем утверждения
     }
 
     @Test
-    public void testsetCurrentNumberVolumeMinus1() {//тест граничные значения звука(-1)
+    public void testSetCurrentNumberVolumeMinus1() {//тест граничные значения звука(-1)
         Radio radio = new Radio();//создаем новый объект
         radio.setCurrentNumberVolume(-1);
         int expected = 0;
         int actual = radio.getCurrentNumberVolume();
         Assertions.assertEquals(expected, actual);//проверяем утверждения
     }
+
+    @Test
+    public void testSetCurrentNumberVolumeMinus120() {//тест принятия громкости больше 100 (допкстим 120)
+        Radio radio = new Radio();//создаем новый объект
+        radio.setCurrentNumberVolume(120);
+        int expected = 0;
+        int actual = radio.getCurrentNumberVolume();
+        Assertions.assertEquals(expected, actual);//проверяем утверждения
+    }
+
+
 }
